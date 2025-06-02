@@ -44,7 +44,7 @@ var NAVTREE =
         [ "🔹 <span class=\"tt\">delete \"path\"</span>", "index.html#autotoc_md27", null ],
         [ "🔹 <span class=\"tt\">move \"from\" \"to\"</span>", "index.html#autotoc_md29", null ]
       ] ],
-      [ "🔎 Търсене", "index.html#autotoc_md31", [
+      [ "Търсене", "index.html#autotoc_md31", [
         [ "🔹 <span class=\"tt\">search &lt;key&gt;</span>", "index.html#autotoc_md32", null ],
         [ "🔹 <span class=\"tt\">search-regex &lt;pattern&gt;</span>", "index.html#autotoc_md34", null ]
       ] ],
