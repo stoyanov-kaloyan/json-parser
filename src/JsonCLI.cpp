@@ -78,21 +78,23 @@ void JsonCLI::run()
         }
         else if (command.substr(0, 7) == "create ")
         {
-            size_t firstQuote = command.find('"', 7);
-            size_t secondQuote = command.find('"', firstQuote + 1);
-            size_t thirdQuote = command.find('"', secondQuote + 1);
-            size_t fourthQuote = command.find('"', thirdQuote + 1);
+            std::string remaining = command.substr(7);
 
-            if (firstQuote != std::string::npos && secondQuote != std::string::npos &&
-                thirdQuote != std::string::npos && fourthQuote != std::string::npos)
+            size_t firstQuote = remaining.find('"');
+            size_t secondQuote = remaining.find('"', firstQuote + 1);
+
+            if (firstQuote != std::string::npos && secondQuote != std::string::npos)
             {
-                std::string path = command.substr(firstQuote + 1, secondQuote - firstQuote - 1);
-                std::string value = command.substr(thirdQuote + 1, fourthQuote - thirdQuote - 1);
-                commandCreate(path, value);
+                std::string path = remaining.substr(firstQuote + 1, secondQuote - firstQuote - 1);
+
+                std::string rawValue = remaining.substr(secondQuote + 1);
+                rawValue.erase(0, rawValue.find_first_not_of(" \t")); // trim leading spaces
+
+                commandCreate(path, rawValue);
             }
             else
             {
-                std::cerr << "Invalid create syntax. Use: create \"path/to/key\" \"json_value\"\n";
+                std::cerr << "Invalid create syntax. Use: create \"path/to/key\" <json_value>\n";
             }
         }
 
@@ -435,7 +437,7 @@ void JsonCLI::commandHelp()
                  "  search <key>            - Search for all occurrences of a specific key\n"
                  "  search-regex <regex>    - Search for keys matching a regular expression\n"
                  "  set \"path\" \"value\"     - Replace the value at a given path (if it exists)\n"
-                 "  create \"path\" \"value\"  - Create a new key with the given value (recursively if needed)\n"
+                 "  create \"path\" \"value\"  - Create a new key with the given value\n"
                  "  delete \"path\"           - Delete the key at the given path\n"
                  "  close                   - Close the current file\n"
                  "  help                    - Show this help message\n"
@@ -702,7 +704,7 @@ void JsonCLI::commandDelete(const std::string &path)
 {
     if (!root)
     {
-        std::cerr << "No JSON loaded.";
+        std::cerr << "No JSON loaded.\n";
         return;
     }
 
@@ -711,52 +713,91 @@ void JsonCLI::commandDelete(const std::string &path)
     JsonNode *current = root;
     JsonNode *parent = nullptr;
     std::string lastKey;
+    bool isArray = false;
+
+    std::vector<std::string> segments;
+    while (std::getline(ss, segment, '/'))
+        segments.push_back(segment);
 
     try
     {
-        while (std::getline(ss, segment, '/'))
+        for (size_t i = 0; i < segments.size() - 1; ++i)
         {
-            if (current->type != JsonType::OBJECT)
-            {
-                throw std::runtime_error("Path segment '" + segment + "' is not an object");
-            }
+            const std::string &seg = segments[i];
             parent = current;
-            current = current->getObjectMember(segment.c_str());
-            if (!current)
+
+            if (current->type == JsonType::OBJECT)
             {
-                throw std::runtime_error("Key '" + segment + "' not found.");
+                current = current->getObjectMember(seg.c_str());
             }
-            lastKey = segment;
+            else if (current->type == JsonType::ARRAY && isArrayIndex(seg))
+            {
+                current = getArrayElementAt(current, std::stoi(seg));
+            }
+            else
+            {
+                throw std::runtime_error("Invalid path segment: " + seg);
+            }
+
+            if (!current)
+                throw std::runtime_error("Path segment not found: " + seg);
         }
 
-        if (parent)
+        const std::string &last = segments.back();
+
+        if (current->type == JsonType::OBJECT)
         {
-            KeyValue **prev = &parent->object;
+            KeyValue **prev = &current->object;
             while (*prev)
             {
-                if (std::string((*prev)->key) == lastKey)
+                if (std::string((*prev)->key) == last)
                 {
                     KeyValue *toDelete = *prev;
                     *prev = toDelete->next;
                     delete[] toDelete->key;
                     delete toDelete->value;
                     delete toDelete;
-                    std::cout << "Deleted key: " << lastKey << "\n";
+                    std::cout << "Deleted key: " << last << "\n";
                     return;
                 }
                 prev = &(*prev)->next;
             }
+            throw std::runtime_error("Key '" + last + "' not found.");
+        }
+        else if (current->type == JsonType::ARRAY && isArrayIndex(last))
+        {
+            int idx = std::stoi(last);
+            ArrayElement **el = &current->array;
+            int i = 0;
+
+            while (*el)
+            {
+                if (i == idx)
+                {
+                    ArrayElement *toDelete = *el;
+                    *el = toDelete->next;
+                    delete toDelete->value;
+                    delete toDelete;
+                    std::cout << "Deleted array element at index: " << idx << "\n";
+                    return;
+                }
+                el = &(*el)->next;
+                ++i;
+            }
+
+            throw std::runtime_error("Index '" + last + "' out of bounds.");
         }
         else
         {
-            throw std::runtime_error("Invalid path.");
+            throw std::runtime_error("Cannot delete from this node type.");
         }
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Failed to delete: " << e.what() << "";
+        std::cerr << "Failed to delete: " << e.what() << "\n";
     }
 }
+
 void cleanupEmptyObjects(JsonNode *node)
 {
     if (!node || node->type != JsonType::OBJECT)
