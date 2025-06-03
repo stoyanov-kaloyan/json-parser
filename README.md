@@ -194,12 +194,17 @@ print
 # Deleted array element at index: 1
 ```
 
+Нека демонстрираме и създаването на масив с командата `create`:
+
+````bash
+> create "user/favorite_colors" ["red", "green", "blue", [255, 0, 0], {"C":12, "M":34, "Y":56, "K":78}]
+
 И нека запазим промените в същия файл с командата `save`:
 
 ```bash
 > save
 # Saved to file: example.json
-```
+````
 
 Нека демонстрираме командата move, като преместим `settings` обекта извън `user` обекта:
 
