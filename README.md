@@ -198,6 +198,7 @@ print
 
 ````bash
 > create "user/favorite_colors" ["red", "green", "blue", [255, 0, 0], {"C":12, "M":34, "Y":56, "K":78}]
+```
 
 И нека запазим промените в същия файл с командата `save`:
 
