@@ -96,7 +96,6 @@ enum class TokenType
 Създайте файл `example.json`, със следното съдържание, в папката с изпълнимия файл:
 
 ```json
-//example.json
 {
   "user": {
     "name": "Kaloyan",
