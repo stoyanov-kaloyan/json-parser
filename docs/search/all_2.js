@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cleanupemptyobjects_0',['cleanupEmptyObjects',['../_json_c_l_i_8cpp.html#a00bba81ea6b847103ea45b9dcaf015b6',1,'JsonCLI.cpp']]],
-  ['close_1',['🔹 &lt;span class=&quot;tt&quot;&gt;close&lt;/span&gt;',['../index.html#autotoc_md37',1,'']]],
+  ['close_1',['🔹 &lt;span class=&quot;tt&quot;&gt;close&lt;/span&gt;',['../index.html#autotoc_md39',1,'']]],
   ['colon_2',['COLON',['../_tokenizer_8h.html#aa520fbf142ba1e7e659590c07da31921af65f22e75defc168edfc6444e6aaf4f8',1,'Tokenizer.h']]],
   ['comma_3',['COMMA',['../_tokenizer_8h.html#aa520fbf142ba1e7e659590c07da31921a4d9b3e9fc12849d060371eb65154c751',1,'Tokenizer.h']]],
   ['commandclose_4',['commandClose',['../class_json_c_l_i.html#a8c7985c094ee33766dfedb4bf8a1fb48',1,'JsonCLI']]],
@@ -17,5 +17,5 @@ var searchData=
   ['commandsearchregex_14',['commandSearchRegex',['../class_json_c_l_i.html#a3273014365fbb4c34627f3a350670d69',1,'JsonCLI']]],
   ['commandset_15',['commandSet',['../class_json_c_l_i.html#ab215433870fb61162944b2ab69305b64',1,'JsonCLI']]],
   ['commandvalidate_16',['commandValidate',['../class_json_c_l_i.html#a5fb6ac90aba64c5012a9047bcfa32b3a',1,'JsonCLI']]],
-  ['create_20path_20value_17',['🔹 &lt;span class=&quot;tt&quot;&gt;create &quot;path&quot; &quot;value&quot;&lt;/span&gt;',['../index.html#autotoc_md25',1,'']]]
+  ['create_20path_20value_17',['🔹 &lt;span class=&quot;tt&quot;&gt;create &quot;path&quot; &quot;value&quot;&lt;/span&gt;',['../index.html#autotoc_md27',1,'']]]
 ];

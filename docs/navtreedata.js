@@ -27,36 +27,38 @@ var NAVTREE =
   [ "JSON Parser", "index.html", [
     [ "Цел на проекта", "index.html#autotoc_md1", null ],
     [ "Документация", "index.html#autotoc_md3", null ],
-    [ "Архитектура", "index.html#autotoc_md4", null ],
-    [ "Kоманди", "index.html#autotoc_md6", [
-      [ "Основни команди", "index.html#autotoc_md7", [
-        [ "🔹 <span class=\"tt\">open &lt;file&gt;</span>", "index.html#autotoc_md8", null ],
-        [ "🔹 <span class=\"tt\">validate</span>", "index.html#autotoc_md10", null ],
-        [ "🔹 <span class=\"tt\">print</span>", "index.html#autotoc_md12", null ],
-        [ "🔹 <span class=\"tt\">save</span>", "index.html#autotoc_md14", null ],
-        [ "🔹 <span class=\"tt\">save \"path\"</span>", "index.html#autotoc_md16", null ],
-        [ "🔹 <span class=\"tt\">saveas \"file\"</span>", "index.html#autotoc_md18", null ],
-        [ "🔹 <span class=\"tt\">saveas \"file\" \"path\"</span>", "index.html#autotoc_md20", null ]
+    [ "Компилация", "index.html#autotoc_md4", null ],
+    [ "Архитектура", "index.html#autotoc_md5", null ],
+    [ "Използване", "index.html#autotoc_md7", null ],
+    [ "Kоманди", "index.html#autotoc_md8", [
+      [ "Основни команди", "index.html#autotoc_md9", [
+        [ "🔹 <span class=\"tt\">open &lt;file&gt;</span>", "index.html#autotoc_md10", null ],
+        [ "🔹 <span class=\"tt\">validate</span>", "index.html#autotoc_md12", null ],
+        [ "🔹 <span class=\"tt\">print</span>", "index.html#autotoc_md14", null ],
+        [ "🔹 <span class=\"tt\">save</span>", "index.html#autotoc_md16", null ],
+        [ "🔹 <span class=\"tt\">save \"path\"</span>", "index.html#autotoc_md18", null ],
+        [ "🔹 <span class=\"tt\">saveas \"file\"</span>", "index.html#autotoc_md20", null ],
+        [ "🔹 <span class=\"tt\">saveas \"file\" \"path\"</span>", "index.html#autotoc_md22", null ]
       ] ],
-      [ "Манипулиране на данни", "index.html#autotoc_md22", [
-        [ "🔹 <span class=\"tt\">set \"path\" \"value\"</span>", "index.html#autotoc_md23", null ],
-        [ "🔹 <span class=\"tt\">create \"path\" \"value\"</span>", "index.html#autotoc_md25", null ],
-        [ "🔹 <span class=\"tt\">delete \"path\"</span>", "index.html#autotoc_md27", null ],
-        [ "🔹 <span class=\"tt\">move \"from\" \"to\"</span>", "index.html#autotoc_md29", null ]
+      [ "Манипулиране на данни", "index.html#autotoc_md24", [
+        [ "🔹 <span class=\"tt\">set \"path\" \"value\"</span>", "index.html#autotoc_md25", null ],
+        [ "🔹 <span class=\"tt\">create \"path\" \"value\"</span>", "index.html#autotoc_md27", null ],
+        [ "🔹 <span class=\"tt\">delete \"path\"</span>", "index.html#autotoc_md29", null ],
+        [ "🔹 <span class=\"tt\">move \"from\" \"to\"</span>", "index.html#autotoc_md31", null ]
       ] ],
-      [ "Търсене", "index.html#autotoc_md31", [
-        [ "🔹 <span class=\"tt\">search &lt;key&gt;</span>", "index.html#autotoc_md32", null ],
-        [ "🔹 <span class=\"tt\">search-regex &lt;pattern&gt;</span>", "index.html#autotoc_md34", null ]
+      [ "Търсене", "index.html#autotoc_md33", [
+        [ "🔹 <span class=\"tt\">search &lt;key&gt;</span>", "index.html#autotoc_md34", null ],
+        [ "🔹 <span class=\"tt\">search-regex &lt;pattern&gt;</span>", "index.html#autotoc_md36", null ]
       ] ],
-      [ "Други", "index.html#autotoc_md36", [
-        [ "🔹 <span class=\"tt\">close</span>", "index.html#autotoc_md37", null ],
-        [ "🔹 <span class=\"tt\">help</span>", "index.html#autotoc_md38", null ],
-        [ "🔹 <span class=\"tt\">exit</span>", "index.html#autotoc_md39", null ]
+      [ "Други", "index.html#autotoc_md38", [
+        [ "🔹 <span class=\"tt\">close</span>", "index.html#autotoc_md39", null ],
+        [ "🔹 <span class=\"tt\">help</span>", "index.html#autotoc_md40", null ],
+        [ "🔹 <span class=\"tt\">exit</span>", "index.html#autotoc_md41", null ]
       ] ]
     ] ],
-    [ "Бъдещи подобрения", "index.html#autotoc_md41", [
-      [ "Повече юнит тестове", "index.html#autotoc_md42", null ],
-      [ "Автоматизирано тестване", "index.html#autotoc_md43", null ]
+    [ "Бъдещи подобрения", "index.html#autotoc_md43", [
+      [ "Повече юнит тестове", "index.html#autotoc_md44", null ],
+      [ "Автоматизирано тестване", "index.html#autotoc_md45", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
