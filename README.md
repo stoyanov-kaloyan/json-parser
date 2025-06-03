@@ -136,7 +136,7 @@ enum class TokenType
 open example.json
 ```
 
-Ако файлът съдържа валиден JSON, че видите следното съобщение:
+Ако файлът съдържа валиден JSON, ще видите следното съобщение:
 
 ```bash
 File loaded.
